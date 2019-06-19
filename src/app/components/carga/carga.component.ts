@@ -9,9 +9,15 @@ import { FotosService } from '../../providers/fotos.service';
 })
 export class CargaComponent implements OnInit {
 
+
+  estaSobre: boolean=false;
   archivos: FileItem[]=[]
 
   constructor(public fotosService:FotosService) { }
+
+  pruebaSobreElemento(event){
+    console.log(event)
+  }
 
   cargarImagenes(){
 
