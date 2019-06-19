@@ -33,15 +33,15 @@ export class NgDropFilesDirective {
 
     
   }
-this.extraerArchivos(transferencia)
+this.extraerArchivos(transferencia.files)
     this._prevenir(event)
     this.mouseSobre.emit(false)
   }
 
   private getTransferencia(event:any){
-
+ 
     return event.dataTransfer ? event.dataTransfer : event.originalEvent.dataTransfer;
-
+    
   }
 
   private extraerArchivos(archivoLista:FileList){
@@ -72,7 +72,7 @@ this.extraerArchivos(transferencia)
   private archivodropeado(nombreArchivo:string):boolean{
   
     for (const archivo of this.archivos){
-      if (archivo.nombreArchivo == nombreArchivo){
+      if (archivo.nombreArchivo === nombreArchivo){
         console.log("el archivo "+ nombreArchivo + " ya existe");
         return true;
       }
