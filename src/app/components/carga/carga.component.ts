@@ -25,6 +25,10 @@ export class CargaComponent implements OnInit {
 
   }
 
+  limpiarArchivos(){
+    this.archivos=[]
+  }
+
   ngOnInit() {
   }
 

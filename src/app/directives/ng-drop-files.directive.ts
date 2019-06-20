@@ -46,8 +46,16 @@ this.extraerArchivos(transferencia.files)
 
   private extraerArchivos(archivoLista:FileList){
 
-    console.log(archivoLista);
+    for (const propiedad in Object.getOwnPropertyNames(archivoLista)){
+      const archivoTemporal = archivoLista[propiedad]
+      if(this.archivoPuedeSerCargado(archivoTemporal)){
+        const nuevoArchivo = new FileItem(archivoTemporal)
+        this.archivos.push(nuevoArchivo);
+      }
+    }
 
+    console.log(this.archivos)
+      
   }
 
   //validaciones

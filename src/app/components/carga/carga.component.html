@@ -12,7 +12,7 @@
 
         <h4>Cargar archivos</h4>
         <button class="btn btn-success" [disabled]="archivos.length === 0" (click)="cargarImagenes()">Cargar a FirseBase</button>
-        <button class="btn btn-danger">Limpiar</button>
+        <button class="btn btn-danger" (click)="limpiarArchivos()">Limpiar</button>
 
         <table class="table">
             <thead class="thead-dark">
@@ -24,12 +24,12 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <th>xyz</th>
-                    <th>12</th>
+                <tr *ngFor="let archivo of archivos">
+                    <th>{{archivo.nombreArchivo}}</th>
+                    <th>{{archivo.archivo.size / 1024 / 1024 | number : ".2-3" }}mb</th>
                     <th>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div [ngStyle]="{'width': archivo.progreso + '%' }" class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </th>
                 </tr>
